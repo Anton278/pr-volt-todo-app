@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.headerLeftCol {
+}
+
+.headerLeftCol p {
+  margin: 0;
+}
+
+.headerLeftCol p:first-child {
+  margin-bottom: 10px;
+}
+
+.headerRightCol {
+  display: flex;
+  column-gap: 16px;
+}

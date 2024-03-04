@@ -1,0 +1,18 @@
+.customCard {
+  max-width: 540px;
+  width: 100%;
+}
+
+.customCardTitle {
+  padding: 0;
+  border: none;
+  background: none;
+  margin-bottom: 0 !important;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.completed {
+  text-decoration: line-through;
+}
