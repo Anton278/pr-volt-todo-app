@@ -7,8 +7,7 @@ import AddTaskModal from "./components/AddTaskModal";
 import s from "./app.module.css";
 
 function App() {
-  const todos = useSelector((state) => state.todos.todos);
-  const filterBy = useSelector((state) => state.todos.filterBy);
+  const todos = useSelector((state) => state.todos.filteredTodos);
 
   return (
     <>
@@ -16,22 +15,14 @@ function App() {
         <Header />
         <main>
           <ul className={s.todoList}>
-            {todos
-              .filter(
-                (todo) =>
-                  filterBy === "all" ||
-                  (filterBy === "completed"
-                    ? todo.isCompleted
-                    : !todo.isCompleted)
-              )
-              .map((todo) => (
-                <Card
-                  title={todo.title}
-                  isCompleted={todo.isCompleted}
-                  id={todo.id}
-                  key={todo.id}
-                />
-              ))}
+            {todos.map((todo) => (
+              <Card
+                title={todo.title}
+                isCompleted={todo.isCompleted}
+                id={todo.id}
+                key={todo.id}
+              />
+            ))}
           </ul>
           <AddTaskModal />
         </main>

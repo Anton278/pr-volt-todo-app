@@ -6,6 +6,7 @@ const initialState = {
   completedTodosCount: 0,
   uncompletedTodosCount: 0,
   filterBy: "all",
+  filteredTodos: [],
 };
 
 export const todosSlice = createSlice({
@@ -13,8 +14,14 @@ export const todosSlice = createSlice({
   initialState,
   reducers: {
     addTodo(state, action) {
-      state.todos.push({ ...action.payload, id: uuidv4() });
+      const id = uuidv4();
+
+      state.todos.push({ ...action.payload, id });
       state.uncompletedTodosCount += 1;
+
+      if (state.filterBy === "all" || state.filterBy === "uncompleted") {
+        state.filteredTodos.push({ ...action.payload, id });
+      }
     },
     updateTodo(state, action) {
       const { id, isCompleted } = action.payload;
@@ -32,9 +39,27 @@ export const todosSlice = createSlice({
         state.completedTodosCount -= 1;
         state.uncompletedTodosCount += 1;
       }
+
+      state.filteredTodos = state.todos.filter((todo) => {
+        if (state.filterBy === "all") {
+          return true;
+        }
+        return state.filterBy === "completed"
+          ? todo.isCompleted
+          : !todo.isCompleted;
+      });
     },
     setFilterBy(state, action) {
       state.filterBy = action.payload;
+
+      state.filteredTodos = state.todos.filter((todo) => {
+        if (state.filterBy === "all") {
+          return true;
+        }
+        return state.filterBy === "completed"
+          ? todo.isCompleted
+          : !todo.isCompleted;
+      });
     },
   },
 });
