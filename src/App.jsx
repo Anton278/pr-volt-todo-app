@@ -15,14 +15,18 @@ function App() {
         <Header />
         <main>
           <ul className={s.todoList}>
-            {todos.map((todo) => (
-              <Card
-                title={todo.title}
-                isCompleted={todo.isCompleted}
-                id={todo.id}
-                key={todo.id}
-              />
-            ))}
+            {todos.length ? (
+              todos.map((todo) => (
+                <Card
+                  title={todo.title}
+                  isCompleted={todo.isCompleted}
+                  id={todo.id}
+                  key={todo.id}
+                />
+              ))
+            ) : (
+              <li>No todos yet</li>
+            )}
           </ul>
           <AddTaskModal />
         </main>
