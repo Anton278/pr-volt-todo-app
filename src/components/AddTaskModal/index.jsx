@@ -1,27 +1,27 @@
-import { useFormik } from "formik";
-import { useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useFormik } from 'formik'
+import { useRef } from 'react'
+import { useDispatch } from 'react-redux'
 
-import { addTaskSchema } from "../../utils/addTaskSchema";
-import { addTodo } from "../../redux/slices/todos/slice";
+import { addTaskSchema } from '../../utils/add-task-schema'
+import { addTodo } from '../../redux/slices/todos/slice'
 
 function AddTaskModal() {
-  const dispatch = useDispatch();
-  const closeBtnRef = useRef();
+  const dispatch = useDispatch()
+  const closeBtnRef = useRef()
 
   const onSubmit = ({ title }) => {
-    dispatch(addTodo({ title, isCompleted: false }));
-    closeBtnRef.current.click();
-    formik.setFieldValue("title", "", false);
-  };
+    dispatch(addTodo({ title, 'isCompleted': false }))
+    closeBtnRef.current.click()
+    formik.setFieldValue('title', '', false)
+  }
 
   const formik = useFormik({
-    initialValues: {
-      title: "",
+    'initialValues': {
+      'title': '',
     },
-    validationSchema: addTaskSchema,
+    'validationSchema': addTaskSchema,
     onSubmit,
-  });
+  })
 
   return (
     <div className="modal" tabIndex="-1" id="addTaskModal">
@@ -44,17 +44,17 @@ function AddTaskModal() {
             <input
               type="text"
               class={`form-control ${
-                formik.touched.title && formik.errors.title ? "is-invalid" : ""
+                formik.touched.title && formik.errors.title ? 'is-invalid' : ''
               }`}
               id="title"
               placeholder="Task 1"
-              {...formik.getFieldProps("title")}
+              {...formik.getFieldProps('title')}
             />
             {formik.touched.title && formik.errors.title ? (
-              <div class="invalid-feedback" style={{ display: "block" }}>
+              <div class="invalid-feedback" style={{ 'display': 'block' }}>
                 {formik.errors.title}
               </div>
-            ) : null}
+            ) : undefined}
           </div>
           <div class="modal-footer">
             <button
@@ -71,7 +71,7 @@ function AddTaskModal() {
         </form>
       </div>
     </div>
-  );
+  )
 }
 
-export default AddTaskModal;
+export default AddTaskModal

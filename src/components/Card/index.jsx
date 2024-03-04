@@ -1,24 +1,24 @@
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux'
 
-import { updateTodo } from "../../redux/slices/todos/slice";
+import { updateTodo } from '../../redux/slices/todos/slice'
 
-import s from "./Card.module.css";
+import styles from './Card.module.css'
 
 function Card(props) {
-  const { title, isCompleted, id } = props;
+  const { title, isCompleted, id } = props
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   const toggleCompleted = () => {
-    dispatch(updateTodo({ title, id, isCompleted: !isCompleted }));
-  };
+    dispatch(updateTodo({ title, id, 'isCompleted': !isCompleted }))
+  }
 
   return (
-    <li className={`card ${s.customCard}`}>
+    <li className={`card ${styles.customCard}`}>
       <div className="card-body">
         <button
-          className={`card-title ${s.customCardTitle} ${
-            isCompleted ? s.completed : ""
+          className={`card-title ${styles.customCardTitle} ${
+            isCompleted ? styles.completed : ''
           }`}
           title="Toggle completed"
           onClick={toggleCompleted}
@@ -27,7 +27,7 @@ function Card(props) {
         </button>
       </div>
     </li>
-  );
+  )
 }
 
-export default Card;
+export default Card

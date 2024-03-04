@@ -1,21 +1,21 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { Provider } from "react-redux";
-import "bootstrap/dist/js/bootstrap.min.js";
+import _React from 'react'
+import ReactDOM from 'react-dom/client'
+import { Provider as _Provider } from 'react-redux'
+import 'bootstrap/dist/js/bootstrap.min.js'
 
-import App from "./App";
-import { store } from "./redux/store";
+import _App from './app'
+import { store } from './redux/store'
 
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-icons/font/bootstrap-icons.css'
 
-import "./index.css";
+import './index.css'
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.querySelector('#root'))
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>
-);
+  <_React.StrictMode>
+    <_Provider store={store}>
+      <_App />
+    </_Provider>
+  </_React.StrictMode>,
+)

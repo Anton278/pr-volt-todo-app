@@ -1,22 +1,22 @@
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux'
 
-import Header from "./components/Header";
-import Card from "./components/Card";
-import AddTaskModal from "./components/AddTaskModal";
+import _Header from './components/Header'
+import _Card from './components/Card'
+import _AddTaskModal from './components/AddTaskModal'
 
-import s from "./app.module.css";
+import styles from './app.module.css'
 
 function App() {
-  const todos = useSelector((state) => state.todos.filteredTodos);
+  const todos = useSelector((state) => state.todos.filteredTodos)
 
   return (
-    <div className={`container ${s.customContainer}`}>
-      <Header />
+    <div className={`container ${styles.customContainer}`}>
+      <_Header />
       <main>
-        <ul className={s.todoList}>
-          {todos.length ? (
+        <ul className={styles.todoList}>
+          {todos.length > 0 ? (
             todos.map((todo) => (
-              <Card
+              <_Card
                 title={todo.title}
                 isCompleted={todo.isCompleted}
                 id={todo.id}
@@ -27,10 +27,10 @@ function App() {
             <li>No todos yet</li>
           )}
         </ul>
-        <AddTaskModal />
+        <_AddTaskModal />
       </main>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

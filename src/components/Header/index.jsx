@@ -1,22 +1,22 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux'
 
-import { setFilterBy } from "../../redux/slices/todos/slice";
+import { setFilterBy } from '../../redux/slices/todos/slice'
 
-import s from "./Header.module.css";
+import styles from './Header.module.css'
 
 function Header() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const completedTodosCount = useSelector(
-    (state) => state.todos.completedTodosCount
-  );
+    (state) => state.todos.completedTodosCount,
+  )
   const uncompletedTodosCount = useSelector(
-    (state) => state.todos.uncompletedTodosCount
-  );
-  const filterBy = useSelector((state) => state.todos.filterBy);
+    (state) => state.todos.uncompletedTodosCount,
+  )
+  const filterBy = useSelector((state) => state.todos.filterBy)
 
   return (
-    <header className={s.header}>
-      <div className={s.headerLeftCol}>
+    <header className={styles.header}>
+      <div className={styles.headerLeftCol}>
         <p>
           Completed tasks: <b>{completedTodosCount}</b>
         </p>
@@ -24,7 +24,7 @@ function Header() {
           Uncompleted tasks: <b>{uncompletedTodosCount}</b>
         </p>
       </div>
-      <div className={s.headerRightCol}>
+      <div className={styles.headerRightCol}>
         <div>
           <button
             type="button"
@@ -40,7 +40,7 @@ function Header() {
           <select
             className="form-select"
             value={filterBy}
-            onChange={(e) => dispatch(setFilterBy(e.target.value))}
+            onChange={(ev) => dispatch(setFilterBy(ev.target.value))}
           >
             <option value="all">All</option>
             <option value="completed">Completed</option>
@@ -49,7 +49,7 @@ function Header() {
         </div>
       </div>
     </header>
-  );
+  )
 }
 
-export default Header;
+export default Header
