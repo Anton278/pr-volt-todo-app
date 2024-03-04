@@ -12,7 +12,7 @@ function AddTaskModal() {
   const onSubmit = ({ title }) => {
     dispatch(addTodo({ title, isCompleted: false }));
     closeBtnRef.current.click();
-    // todo: clear inp val
+    formik.setFieldValue("title", "", false);
   };
 
   const formik = useFormik({
