@@ -39,7 +39,6 @@ function Header() {
         <div>
           <select
             className="form-select"
-            aria-label="Default select example"
             value={filterBy}
             onChange={(e) => dispatch(setFilterBy(e.target.value))}
           >

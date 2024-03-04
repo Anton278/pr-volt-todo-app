@@ -1,3 +1,8 @@
+.customContainer {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .todoList {
   margin: 0;
   padding: 0;
@@ -6,9 +11,4 @@
   align-items: center;
   row-gap: 20px;
   list-style-type: none;
-}
-
-.customContainer {
-  margin-top: 20px;
-  margin-bottom: 20px;
 }

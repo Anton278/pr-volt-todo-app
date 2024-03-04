@@ -20,7 +20,7 @@ function Card(props) {
           className={`card-title ${s.customCardTitle} ${
             isCompleted ? s.completed : ""
           }`}
-          title="Mark as completed"
+          title="Toggle completed"
           onClick={toggleCompleted}
         >
           {title}
